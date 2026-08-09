@@ -50,8 +50,10 @@
     @keyframes omPanelIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
   }
   @media (max-width: 860px) { .nav-links { display: none !important; } .thread { grid-template-columns: 1fr !important; gap: 12px !important; } .foot-grid { grid-template-columns: 1fr !important; } .orbit-wrap { display: none !important; } .headgrid { grid-template-columns: 1fr !important; } }
-  @keyframes orbitTileIn { from { opacity: 0; transform: scale(1.15); } to { opacity: 1; transform: scale(1); } }
-  .orbit-tile { opacity: 0; animation: orbitTileIn .7s cubic-bezier(.22,.61,.36,1) forwards; }
+  .collab-row { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; }
+  .collab-logo { flex: 0 0 auto; width: 108px; height: 52px; }
+  .collab-logo.dark { background: #1d1f20; border-radius: 6px; padding: 8px; box-sizing: border-box; }
+  .collab-row image-slot::part(frame) { background: transparent; }
 </style>
 <script src="image-slot.js"></script>
 <script>
@@ -89,16 +91,21 @@
       <div style="font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--color-accent-700); margin-bottom: 16px;">Research</div>
       <h1 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(40px, 6vw, 68px); line-height: 0.98; margin: 0 0 24px; max-width: 18ch;">From single-modality PCB inspection to multimodal AI failure analysis</h1>
       <p style="font-size: 16px; line-height: 1.65; max-width: 68ch; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Over the past five years my work has followed a trajectory from single-modality printed-circuit-board inspection toward multimodal, AI-assisted failure analysis of heterogeneously integrated semiconductor packages — carried out primarily at the University of Florida Security and Assurance Laboratory (SCAN Lab) under Dr. Navid Asadi, with collaborations at NIST, Sandia, DHS, and industry partners.</p>
+      <div style="font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 32px 0 16px;">Collaborators &amp; partners</div>
+      <div class="collab-row">
+        <div class="collab-logo"><image-slot id="collab-uf" shape="rect" fit="contain" src="assets/logos/uf.svg" placeholder="UF"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-ucf" shape="rect" fit="contain" src="assets/logos/ucf.svg" placeholder="UCF"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-nsf" shape="rect" fit="contain" src="assets/logos/nsf.svg" placeholder="NSF"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-doe" shape="rect" fit="contain" src="assets/logos/doe.svg" placeholder="DOE"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-dhs" shape="rect" fit="contain" src="assets/logos/dhs.svg" placeholder="DHS"></image-slot></div>
+        <div class="collab-logo dark"><image-slot id="collab-fsi" shape="rect" fit="contain" src="assets/logos/fsi.png" placeholder="FL Semiconductor Institute"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-nist" shape="rect" fit="contain" src="assets/logos/nist.svg" placeholder="NIST"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-nhanced" shape="rect" fit="contain" src="assets/logos/nhanced.png" placeholder="Nhanced Semiconductor"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-sigray" shape="rect" fit="contain" src="assets/logos/sigray.png" placeholder="Sigray"></image-slot></div>
+        <div class="collab-logo"><image-slot id="collab-appliedmaterials" shape="rect" fit="contain" src="assets/logos/applied-materials.svg" placeholder="Applied Materials"></image-slot></div>
+      </div>
     </div>
     <div class="orbit-wrap" style="position: relative; aspect-ratio: 1; width: 100%; max-width: 340px; margin: 0 auto;">
-      <div style="position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2px; overflow: hidden; border: 1px solid var(--color-divider); opacity: 0.28; filter: grayscale(1);">
-        <div class="orbit-tile" style="animation-delay: .05s;"><image-slot id="collab-uf" shape="rect" placeholder="UF"></image-slot></div>
-        <div class="orbit-tile" style="animation-delay: .18s;"><image-slot id="collab-nist" shape="rect" placeholder="NIST"></image-slot></div>
-        <div class="orbit-tile" style="animation-delay: .31s;"><image-slot id="collab-nhanced" shape="rect" placeholder="Nhanced Semiconductor"></image-slot></div>
-        <div class="orbit-tile" style="animation-delay: .44s;"><image-slot id="collab-nsf" shape="rect" placeholder="NSF"></image-slot></div>
-        <div class="orbit-tile" style="animation-delay: .57s;"><image-slot id="collab-ucf" shape="rect" placeholder="UCF"></image-slot></div>
-        <div class="orbit-tile" style="animation-delay: .7s;"><image-slot id="collab-dhs" shape="rect" placeholder="DHS"></image-slot></div>
-      </div>
       <div class="blueprint" style="position: absolute; inset: 18%; border-radius: 50%; overflow: hidden; border: 1px solid var(--color-divider); z-index: 2; background: var(--color-bg); box-shadow: var(--shadow-md);">
         <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
         <img src="assets/headshot.png" alt="Patrick Craig" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;">
@@ -148,7 +155,7 @@
     <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
       <div>
         <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">04</div>
-        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">Sandia LDRD · 2025–present</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">DOE research · 2025–present</div>
       </div>
       <div>
         <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Material-aware X-ray for semiconductor assurance</h2>
