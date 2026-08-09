@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/styles.css">
+<script src="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  a { color: var(--color-accent); text-underline-offset: 3px; }
+  a:hover { color: var(--color-accent-700); }
+  .navlink { font-size: 14px; text-decoration: none; color: var(--color-text); font-family: var(--font-body); }
+  .navlink:hover { color: var(--color-accent-700); }
+  .navlink[data-current] { color: var(--color-accent-700); font-weight: 600; }
+  .social { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--color-divider); color: var(--color-accent-700); text-decoration: none; transition: background .12s ease, border-color .12s ease; }
+  .social:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); border-color: var(--color-accent); }
+  /* — premium motion — */
+  .btn { transition: background .15s ease, transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .22s ease; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .btn-secondary:hover, .btn-ghost:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+  .social { transition: background .15s ease, border-color .15s ease, transform .18s cubic-bezier(.22,.61,.36,1); }
+  .social:hover { transform: translateY(-2px); }
+  .cell-hover { transition: border-color .18s ease, transform .24s cubic-bezier(.22,.61,.36,1), box-shadow .24s ease; }
+  .cell-hover:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+  .navlink { position: relative; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1.5px; background: var(--color-accent); transition: right .3s cubic-bezier(.22,.61,.36,1); }
+  .navlink:hover::after { right: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    html.motion .sc-host > div > section, html.motion .sc-host > div > footer { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    html.motion .sc-host > div > section[data-vis], html.motion .sc-host > div > footer[data-vis] { opacity: 1; transform: none; }
+    html.motion [data-stagger] > * { opacity: 0; transform: translateY(18px); transition: opacity .62s cubic-bezier(.22,.61,.36,1), transform .62s cubic-bezier(.22,.61,.36,1); }
+    html.motion [data-vis] [data-stagger] > * { opacity: 1; transform: none; }
+    html.motion [data-stagger] > *:nth-child(1) { transition-delay: .04s; }
+    html.motion [data-stagger] > *:nth-child(2) { transition-delay: .10s; }
+    html.motion [data-stagger] > *:nth-child(3) { transition-delay: .16s; }
+    html.motion [data-stagger] > *:nth-child(4) { transition-delay: .22s; }
+    html.motion [data-stagger] > *:nth-child(5) { transition-delay: .28s; }
+    html.motion [data-stagger] > *:nth-child(6) { transition-delay: .34s; }
+    .pubpanel { animation: omPanelIn .44s cubic-bezier(.22,.61,.36,1); }
+    @keyframes omPanelIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  }
+  @media (max-width: 860px) { .nav-links { display: none !important; } .thread { grid-template-columns: 1fr !important; gap: 12px !important; } .foot-grid { grid-template-columns: 1fr !important; } .orbit-wrap { display: none !important; } .headgrid { grid-template-columns: 1fr !important; } }
+  @keyframes orbitTileIn { from { opacity: 0; transform: scale(1.15); } to { opacity: 1; transform: scale(1); } }
+  .orbit-tile { opacity: 0; animation: orbitTileIn .7s cubic-bezier(.22,.61,.36,1) forwards; }
+</style>
+<script src="image-slot.js"></script>
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  root.classList.add('motion');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.setAttribute('data-vis',''); io.unobserve(e.target); } });},{threshold:0.10, rootMargin:'0px 0px -6% 0px'});
+  function scan(){ d.querySelectorAll('.sc-host > div > section, .sc-host > div > footer').forEach(function(el){ if(!el.__om){ el.__om=1; io.observe(el);} }); }
+  function boot(){ if(d.body){ new MutationObserver(scan).observe(d.body,{childList:true,subtree:true}); } scan(); }
+  if(d.body) boot(); else d.addEventListener('DOMContentLoaded', boot);
+  var n=0,t=setInterval(function(){ scan(); if(++n>50) clearInterval(t); },120);
+})();
+</script>
+<script src="continuous-scroll.js"></script>
+</helmet>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
+
+  <nav style="display: flex; align-items: center; gap: 28px; padding: 18px 0; border-bottom: 1px solid var(--color-divider);">
+    <a href="index.dc.html" style="font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 19px; flex: 1 1 0; text-decoration: none; color: var(--color-text);">Patrick Craig</a>
+    <div class="nav-links" style="display: flex; gap: 26px; align-items: center;">
+      <a class="navlink" href="index.dc.html">Home</a>
+      <a class="navlink" data-current href="Research.dc.html">Research</a>
+      <a class="navlink" href="Publications.dc.html">Publications</a>
+      <a class="navlink" href="Patents.dc.html">Patents</a>
+      <a class="navlink" href="About.dc.html">About</a>
+    </div>
+    <div style="flex: 1 1 0; display: flex; justify-content: flex-end;"><a href="About.dc.html#cv" class="btn btn-primary blueprint" style="padding: 8px 16px; text-decoration: none;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Download CV</a></div>
+  </nav>
+
+  <!-- PAGE HEAD -->
+  <section class="headgrid" style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: clamp(32px, 5vw, 64px); align-items: center; padding: clamp(44px, 6vw, 76px) 0 clamp(28px, 4vw, 44px);">
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--color-accent-700); margin-bottom: 16px;">Research</div>
+      <h1 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(40px, 6vw, 68px); line-height: 0.98; margin: 0 0 24px; max-width: 18ch;">From single-modality PCB inspection to multimodal AI failure analysis</h1>
+      <p style="font-size: 16px; line-height: 1.65; max-width: 68ch; margin: 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Over the past five years my work has followed a trajectory from single-modality printed-circuit-board inspection toward multimodal, AI-assisted failure analysis of heterogeneously integrated semiconductor packages — carried out primarily at the University of Florida Security and Assurance Laboratory (SCAN Lab) under Dr. Navid Asadi, with collaborations at NIST, Sandia, DHS, and industry partners.</p>
+    </div>
+    <div class="orbit-wrap" style="position: relative; aspect-ratio: 1; width: 100%; max-width: 340px; margin: 0 auto;">
+      <div style="position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 2px; overflow: hidden; border: 1px solid var(--color-divider); opacity: 0.28; filter: grayscale(1);">
+        <div class="orbit-tile" style="animation-delay: .05s;"><image-slot id="collab-uf" shape="rect" placeholder="UF"></image-slot></div>
+        <div class="orbit-tile" style="animation-delay: .18s;"><image-slot id="collab-nist" shape="rect" placeholder="NIST"></image-slot></div>
+        <div class="orbit-tile" style="animation-delay: .31s;"><image-slot id="collab-nhanced" shape="rect" placeholder="Nhanced Semiconductor"></image-slot></div>
+        <div class="orbit-tile" style="animation-delay: .44s;"><image-slot id="collab-nsf" shape="rect" placeholder="NSF"></image-slot></div>
+        <div class="orbit-tile" style="animation-delay: .57s;"><image-slot id="collab-ucf" shape="rect" placeholder="UCF"></image-slot></div>
+        <div class="orbit-tile" style="animation-delay: .7s;"><image-slot id="collab-dhs" shape="rect" placeholder="DHS"></image-slot></div>
+      </div>
+      <div class="blueprint" style="position: absolute; inset: 18%; border-radius: 50%; overflow: hidden; border: 1px solid var(--color-divider); z-index: 2; background: var(--color-bg); box-shadow: var(--shadow-md);">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <img src="assets/headshot.png" alt="Patrick Craig" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- THREADS -->
+  <section style="padding: 0 0 clamp(40px, 6vw, 72px);">
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">01</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">SCAN Lab, UF · 2024–present</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Multimodal characterization of heterogeneously integrated devices</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">The conceptual core of my dissertation: heterogeneous material stacks in advanced packages exceed the sensitivity of any single non-destructive modality, motivating a fused-inspection framework combining X-ray, acoustic, terahertz, and optical measurements with AI-based fusion. I have built out this workflow using the SCAN Lab's Sigray Apex hybrid X-ray CT/laminography, Nordson Sonoscan SAM, Protemics TeraCube near-field THz-TDS, and optical microscopy — investigating the relationships between imaging physics, material properties, and defect observability.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Advisor: Dr. Navid Asadi · Collaborators: N. Varshney, A. Roy, S. Ghosh, M. S. I. Shovon, C. Woychik, H. Dalir</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">02</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">NIST · Spring 2026</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Multimodal X-ray characterization of through-glass vias</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">In collaboration with NIST, I designed and executed X-ray CT and laminography workflows across wafer- and die-scale samples at voxel resolutions from 5 µm to 300 nm, characterizing high-aspect-ratio TGV structures with via pitches from 100 to 400 µm. The work investigated void formation, copper pullout, delamination, interface defects, and process-induced variability across bonded and freestanding wafer configurations, with region-of-interest and montage acquisition strategies to optimize throughput and defect detectability.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">National Institute of Standards and Technology · with Dr. Jessie Zhang</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">03</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">SCAN Lab, UF · 2025–present</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Multimodal dataset for HBM3 memory systems</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">A large-scale multimodal characterization dataset for NVIDIA H100 HBM3 memory systems, integrating X-ray CT, X-ray laminography, and scanning acoustic microscopy. The work performs non-destructive imaging of HBM interconnects, microbumps, TSVs, substrate interfaces, and multilayer package structures, curating thousands of annotated defect and interconnect features to support agentic AI workflows, automated failure analysis, and advanced packaging metrology — and to benchmark the multimodal fusion methods central to my dissertation.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Target venue: ISTFA 2026</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">04</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">Sandia LDRD · 2025–present</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Material-aware X-ray for semiconductor assurance</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">A Sandia LDRD-funded initiative on semiconductor assurance and material-aware X-ray characterization. My contributions include multimodal workflows integrating multi-energy X-ray CT and laminography with spectral reconstruction, methods for reconstructing effective atomic number and electron density within 3D X-ray volumes, and software pipelines for material-aware 3D PCB reconstruction — GERBER-to-material representations, spectral CT integration, and layer-alignment visualization.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Sandia National Laboratories · Funding: $130,000</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">05</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">SCAN Lab, UF · 2023–2025</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">PCB assurance &amp; netlist extraction</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">My earliest doctoral work — the methodological foundation on which the current multimodal work rests. I demonstrated that semi-supervised deep learning can substantially reduce the labeled-data burden for PCB component detection under X-ray (RAPID 2024), extended it to a multimodal X-ray-and-optical setting (SPIE 2024), and developed an optical PCB-interconnect inspection pipeline (ISTFA 2024) later extended into a journal article (JFAP 2025), with a high-throughput X-ray extension reported at RAPID 2025.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Co-authors: N. Varshney, A. Roy, S. Ghosh, J. Pearson, S. J. Koppal, C. Woychik</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">06</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">SCAN Lab, UF · 2023–2024</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Terahertz TDS for IC identification</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">Broadening the modality set beyond X-ray and optical imaging, I first-authored work establishing near-field THz time-domain spectroscopy as a distinguishing modality for IC identification and provenance (SPIE Terahertz Emitters, Receivers, and Applications XV, 2024). This introduced the Protemics TeraCube capability into my multimodal workflow and provides the terahertz contribution to the fusion framework.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Collaborators: C. Xi, W. Mitchell, N. Varshney, S. Ghosh</div>
+      </div>
+    </div>
+
+    <div class="thread" style="display: grid; grid-template-columns: 190px 1fr; gap: clamp(20px, 4vw, 56px); padding: 32px 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider);">
+      <div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 30px; color: var(--color-accent-700); line-height: 1; margin-bottom: 10px;">07</div>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); line-height: 1.4;">Leadership · 2023–present</div>
+      </div>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; font-size: 26px; margin: 0 0 12px;">Program leadership &amp; broader contributions</h2>
+        <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px; color: color-mix(in srgb, var(--color-text) 84%, transparent);">I serve as technical lead for a multi-million-dollar NSF Engines-funded semiconductor R&amp;D initiative, leading development of multimodal datasets and AI-assisted failure-analysis workflows. Across two program years I contributed to the DHS HS-POWER program on automated microelectronics assurance under Dr. Pauline Paki, co-authoring work on advanced-packaging raw-materials assurance (SPIE 2025) and mentoring three student interns to publishable outputs. I have co-authored numerous SCAN Lab papers spanning explainable-AI metrics, physics-informed neural networks, SAM adaptation, counterfeit-IC classification, and VLM/LLM inspection assistants.</p>
+        <div style="font-size: 13px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 60%, transparent);">NSF Engines · DHS S&amp;T Directorate · Mentor: Dr. Pauline Paki</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- GALLERY (pcb) -->
+  <section style="padding: clamp(24px, 4vw, 40px) 0 clamp(32px, 5vw, 56px);">
+    <dc-import name="Gallery" gid="research-pcb" variant="pcb" hint-size="100%,560px"></dc-import>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: clamp(24px, 4vw, 40px) 0 clamp(48px, 6vw, 72px);">
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+      <a href="Publications.dc.html" class="btn btn-primary blueprint" style="padding: 11px 22px; text-decoration: none;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>See all publications</a>
+      <a href="Patents.dc.html" class="btn btn-secondary" style="padding: 11px 22px; text-decoration: none;">Patents</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot-grid" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; border-top: 1px solid var(--color-divider); padding: 40px 0 56px;">
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 18px; margin-bottom: 8px;">Patrick Craig</div>
+      <p style="font-size: 13.5px; line-height: 1.55; margin: 0; max-width: 34ch; color: color-mix(in srgb, var(--color-text) 65%, transparent);">PhD Candidate, University of Florida SCAN Lab. Multimodal AI for semiconductor failure analysis.</p>
+    </div>
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-bottom: 12px;">Site</div>
+      <div style="display: grid; gap: 8px; font-size: 14px;">
+        <a href="Research.dc.html" class="navlink">Research</a>
+        <a href="Publications.dc.html" class="navlink">Publications</a>
+        <a href="Patents.dc.html" class="navlink">Patents</a>
+        <a href="About.dc.html" class="navlink">About &amp; CV</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-bottom: 12px;">Elsewhere</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="social" href="https://www.linkedin.com/in/patrick-j-craig/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4zM8 8h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6.1V24h-4v-7c0-1.7 0-3.8-2.3-3.8-2.3 0-2.7 1.8-2.7 3.7V24H8z"/></svg></a>
+        <a class="social" href="https://github.com/patrickjcraig" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+        <a class="social" href="https://scholar.google.com/citations?user=wmn2z3QAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></a>
+        <a class="social" href="mailto:pcraig1@ufl.edu" aria-label="Email"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><path d="m2 6 10 7 10-7"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

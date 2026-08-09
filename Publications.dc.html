@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/styles.css">
+<script src="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  a { color: var(--color-accent); text-underline-offset: 3px; }
+  a:hover { color: var(--color-accent-700); }
+  .navlink { font-size: 14px; text-decoration: none; color: var(--color-text); font-family: var(--font-body); }
+  .navlink:hover { color: var(--color-accent-700); }
+  .navlink[data-current] { color: var(--color-accent-700); font-weight: 600; }
+  .social { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--color-divider); color: var(--color-accent-700); text-decoration: none; transition: background .12s ease, border-color .12s ease; }
+  .social:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); border-color: var(--color-accent); }
+  /* — premium motion — */
+  .btn { transition: background .15s ease, transform .18s cubic-bezier(.22,.61,.36,1), box-shadow .22s ease; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .btn-secondary:hover, .btn-ghost:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); }
+  .social { transition: background .15s ease, border-color .15s ease, transform .18s cubic-bezier(.22,.61,.36,1); }
+  .social:hover { transform: translateY(-2px); }
+  .cell-hover { transition: border-color .18s ease, transform .24s cubic-bezier(.22,.61,.36,1), box-shadow .24s ease; }
+  .cell-hover:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+  .navlink { position: relative; }
+  .navlink::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1.5px; background: var(--color-accent); transition: right .3s cubic-bezier(.22,.61,.36,1); }
+  .navlink:hover::after { right: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    html.motion .sc-host > div > section, html.motion .sc-host > div > footer { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
+    html.motion .sc-host > div > section[data-vis], html.motion .sc-host > div > footer[data-vis] { opacity: 1; transform: none; }
+    html.motion [data-stagger] > * { opacity: 0; transform: translateY(18px); transition: opacity .62s cubic-bezier(.22,.61,.36,1), transform .62s cubic-bezier(.22,.61,.36,1); }
+    html.motion [data-vis] [data-stagger] > * { opacity: 1; transform: none; }
+    html.motion [data-stagger] > *:nth-child(1) { transition-delay: .04s; }
+    html.motion [data-stagger] > *:nth-child(2) { transition-delay: .10s; }
+    html.motion [data-stagger] > *:nth-child(3) { transition-delay: .16s; }
+    html.motion [data-stagger] > *:nth-child(4) { transition-delay: .22s; }
+    html.motion [data-stagger] > *:nth-child(5) { transition-delay: .28s; }
+    html.motion [data-stagger] > *:nth-child(6) { transition-delay: .34s; }
+    .pubpanel { animation: omPanelIn .44s cubic-bezier(.22,.61,.36,1); }
+    @keyframes omPanelIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  }
+  .pub { display: grid; grid-template-columns: 40px 1fr 110px; gap: 22px; align-items: baseline; padding: 18px 8px; border-bottom: 1px solid var(--color-divider); }
+  .pub .num { font-family: var(--font-heading); font-weight: 600; font-size: 13px; color: var(--color-accent-700); letter-spacing: 0.06em; }
+  .pub .title { font-size: 15px; line-height: 1.45; margin-bottom: 5px; }
+  .pub .auth { font-size: 12.5px; line-height: 1.5; color: color-mix(in srgb, var(--color-text) 62%, transparent); }
+  .pub .venue { text-align: right; }
+  .pub .vlabel { font-family: var(--font-heading); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pub .vsub { font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+  .me { color: var(--color-accent-700); font-weight: 600; }
+  .yr { font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--color-accent-700); border-bottom: 2px solid var(--color-accent); padding-bottom: 10px; margin: 40px 0 4px; }
+  @media (max-width: 860px) { .nav-links { display: none !important; } .foot-grid { grid-template-columns: 1fr !important; } .pub { grid-template-columns: 30px 1fr; } .pub .venue { grid-column: 2; text-align: left; margin-top: 4px; } .headrow { flex-direction: column; align-items: flex-start !important; gap: 20px; } }
+</style>
+<script>
+(function(){
+  var d=document, root=d.documentElement;
+  try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  root.classList.add('motion');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){ e.target.setAttribute('data-vis',''); io.unobserve(e.target); } });},{threshold:0.10, rootMargin:'0px 0px -6% 0px'});
+  function scan(){ d.querySelectorAll('.sc-host > div > section, .sc-host > div > footer').forEach(function(el){ if(!el.__om){ el.__om=1; io.observe(el);} }); }
+  function boot(){ if(d.body){ new MutationObserver(scan).observe(d.body,{childList:true,subtree:true}); } scan(); }
+  if(d.body) boot(); else d.addEventListener('DOMContentLoaded', boot);
+  var n=0,t=setInterval(function(){ scan(); if(++n>50) clearInterval(t); },120);
+})();
+</script>
+<script src="continuous-scroll.js"></script>
+</helmet>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
+
+  <nav style="display: flex; align-items: center; gap: 28px; padding: 18px 0; border-bottom: 1px solid var(--color-divider);">
+    <div style="flex: 1 1 0;"></div>
+    <div class="nav-links" style="display: flex; gap: 26px; align-items: center;">
+      <a class="navlink" href="index.dc.html">Home</a>
+      <a class="navlink" href="Research.dc.html">Research</a>
+      <a class="navlink" data-current href="Publications.dc.html">Publications</a>
+      <a class="navlink" href="Patents.dc.html">Patents</a>
+      <a class="navlink" href="About.dc.html">About</a>
+    </div>
+    <div style="flex: 1 1 0; display: flex; justify-content: flex-end;"><a href="About.dc.html#cv" class="btn btn-primary blueprint" style="padding: 8px 16px; text-decoration: none;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Download CV</a></div>
+  </nav>
+
+  <section class="headrow" style="display: flex; justify-content: space-between; align-items: end; gap: 24px; padding: clamp(44px, 6vw, 76px) 0 clamp(20px, 4vw, 36px);">
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--color-accent-700); margin-bottom: 16px;">Publications</div>
+      <h1 style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(40px, 6vw, 68px); line-height: 0.98; margin: 0; max-width: 16ch;">Peer-reviewed &amp; refereed work</h1>
+    </div>
+    <div style="display: flex; gap: 28px; padding-bottom: 8px;">
+      <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 34px; line-height: 1;">21</div><div style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent);">Refereed</div></div>
+      <div><div style="font-family: var(--font-heading); font-weight: 600; font-size: 34px; line-height: 1;">07</div><div style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent);">First author</div></div>
+    </div>
+  </section>
+
+  <p style="font-size: 14px; line-height: 1.6; margin: 0 0 8px; color: color-mix(in srgb, var(--color-text) 62%, transparent);"><span class="me">Blue</span> marks first authorship. Full profile: <a href="https://scholar.google.com/citations?user=wmn2z3QAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></p>
+
+  <div class="yr">2026</div>
+  <div class="pub"><span class="num">01</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=GUIDE-X%3A%20VLM-LLM-based%20AI%20assistant%20for%20artifact%20detection%20and%20operator%20guidance%20in%20X-ray%20inspection" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">GUIDE-X: VLM-LLM-based AI assistant for artifact detection and operator guidance in X-ray inspection</a></div><div class="auth">Shovon, M. S. I., Ghosh, S., Shiam, I. F., <span class="me">Craig, P.</span>, Roy, A., Shukla, P., Vemuri, V. S., Bahrami, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2026</div><div class="vsub">Vol. 13981</div></div></div>
+  <div class="pub"><span class="num">02</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=AURA-PIE%3A%20An%20AI-enabled%20understanding%20and%20retrieval-augmented%20assistant%20for%20physical%20inspection%20of%20electronics" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">AURA-PIE: An AI-enabled understanding and retrieval-augmented assistant for physical inspection of electronics</a></div><div class="auth">Ghosh, S., <span class="me">Craig, P.</span>, Roy, A., Shovon, M. S. I., Vemuri, V. S., Allgair, J., Bahrami, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2026</div><div class="vsub">Vol. 13981</div></div></div>
+
+  <div class="yr">2025</div>
+  <div class="pub"><span class="num">03</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — AI-driven framework for generalized optical inspection of printed circuit board interconnects</a></div><div class="auth">Craig, P., Pearson, J., Ghosh, S., Varshney, N., Koppal, S. J., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">JFAP 2025</div><div class="vsub" style="color: var(--color-accent-700); font-weight: 600;">Journal · 25(5)</div></div></div>
+  <div class="pub"><span class="num">04</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Deep learning-driven X-ray analysis for high-throughput manufacturing</a></div><div class="auth">Craig, P., Roy, A., Ghosh, S., Shovon, M. S. I., Varshney, N., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">RAPID 2025</div></div></div>
+  <div class="pub"><span class="num">05</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=SegPCBX%3A%20Redefining%20automated%20PCB%20inspection%20with%20a%20novel%20PCB%20X-ray%20dataset%20for%20component%20analysis" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">SegPCBX: Redefining automated PCB inspection with a novel PCB X-ray dataset for component analysis</a></div><div class="auth">Roy, A., Varshney, N., <span class="me">Craig, P.</span>, Ghosh, S., Al Hasan, M. M., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2025</div><div class="vsub">Vol. 13426</div></div></div>
+  <div class="pub"><span class="num">06</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=X-ADAPT%3A%20AI-driven%20design-based%20strategy%20to%20address%20X-ray%20compatibility%20challenges%20in%20advanced%20packaging%20metrology" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">X-ADAPT: AI-driven design-based strategy to address X-ray compatibility challenges in advanced packaging metrology</a></div><div class="auth">Yahyaei, K., Khan, M. S. M., Ghosh, S., Roy, A., <span class="me">Craig, P.</span>, Varshney, N., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2025</div><div class="vsub">Vol. 13426</div></div></div>
+  <div class="pub"><span class="num">07</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Preserving%20fine%20details%20in%20PCB%20X-ray%20imaging%3A%20A%20patch-based%20data%20augmentation%20method%20for%20improved%20segmentation%20and%20detection" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Preserving fine details in PCB X-ray imaging: A patch-based data augmentation method for improved segmentation and detection</a></div><div class="auth">Roy, A., Ghosh, S., <span class="me">Craig, P.</span>, Varshney, N., Al Hasan, M. M., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2025</div><div class="vsub">Vol. 13426</div></div></div>
+  <div class="pub"><span class="num">08</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Advanced%20packaging%20raw%20materials%20assurance%20by%20characterization" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Advanced packaging raw materials assurance by characterization</a></div><div class="auth">Biswas, L. K., <span class="me">Craig, P. J.</span>, Varshney, N., Roy, A., Godinez, C. D., Paki, P., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2025</div><div class="vsub">Vol. 13426</div></div></div>
+  <div class="pub"><span class="num">09</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Advanced%20metrics%20for%20high-precision%20PCB%20inspection%20using%203D%20X-ray%20reconstruction" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Advanced metrics for high-precision PCB inspection using 3D X-ray reconstruction</a></div><div class="auth">Ghosh, S., Roy, A., Varshney, N., <span class="me">Craig, P.</span>, Al Hasan, M. M., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2025</div><div class="vsub">Vol. 13426</div></div></div>
+  <div class="pub"><span class="num">10</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Sample%20preparation%20to%20access%20interposer%20interconnects%20of%20advanced%20packaging%20for%20probing" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Sample preparation to access interposer interconnects of advanced packaging for probing</a></div><div class="auth">Biswas, L. K., Khan, M. S. M., Varshney, N., <span class="me">Craig, P.</span>, Peng, Y., Tang, J., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">WMED 2025</div></div></div>
+  <div class="pub"><span class="num">11</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Physics-informed%20neural%20networks%20for%20SAM%20image%20enhancement%20with%20a%20novel%20physics-constrained%20metric%20for%20advanced%20semiconductor%20packaging%20inspection" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Physics-informed neural networks for SAM image enhancement with a novel physics-constrained metric for advanced semiconductor packaging inspection</a></div><div class="auth">Ghosh, S., Varshney, N., Roy, A., <span class="me">Craig, P.</span>, Al Hasan, M. M., Ghane-Motlagh, R., Elsayed, N., Koppal, S. J., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">ECTC 2025</div></div></div>
+  <div class="pub"><span class="num">12</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=A%20novel%20framework%20for%20identifying%20counterfeit%20ICs%20via%20pinhole%20evaluation" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">A novel framework for identifying counterfeit ICs via pinhole evaluation</a></div><div class="auth">Shovon, M. S. I., Ghosh, S., <span class="me">Craig, P. J.</span>, Huang, C.-C., Pai, C.-Y., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">RAPID 2025</div></div></div>
+  <div class="pub"><span class="num">13</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=PINCLASS%3A%20Pinhole-centric%20counterfeit%20classification%20of%20IC%20packages" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">PINCLASS: Pinhole-centric counterfeit classification of IC packages</a></div><div class="auth">Shovon, M. S. I., Ghosh, S., Pai, C.-Y., <span class="me">Craig, P. J.</span>, Huang, C.-C., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">PAINE 2025</div></div></div>
+
+  <div class="yr">2024</div>
+  <div class="pub"><span class="num">14</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Motivating automated multimodal failure analysis for heterogeneously integrated devices</a></div><div class="auth">Craig, P., Varshney, N., Roy, A., Woychik, C., Dalir, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2024</div><div class="vsub">Vol. 13152</div></div></div>
+  <div class="pub"><span class="num">15</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Multi-modal printed circuit board netlist extraction with X-ray and optical imaging</a></div><div class="auth">Craig, P., Varshney, N., Roy, A., Ghosh, S., Patil, C., Dalir, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2024</div><div class="vsub">Vol. 13152</div></div></div>
+  <div class="pub"><span class="num">16</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Terahertz time-domain spectroscopy (THz-TDS) fingerprinting for integrated circuit (IC) identification in tracking and tracing applications</a></div><div class="auth">Craig, P., Xi, C., Varshney, N., Mitchell, W., Ghosh, S., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2024</div><div class="vsub">Vol. 13141</div></div></div>
+  <div class="pub"><span class="num">17</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Advancing PCB assurance towards netlist extraction with the integration of X-ray imaging and semi-supervised learning techniques</a></div><div class="auth">Craig, P., Roy, A., Varshney, N., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">RAPID 2024</div></div></div>
+  <div class="pub"><span class="num">18</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Craig%2C%20P." target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><span class="me">Craig, P.</span> — Optical automated interconnect inspection of printed circuit boards</a></div><div class="auth">Craig, P., Pearson, J., Ghosh, S., Varshney, N., Koppal, S. J., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">ISTFA 2024</div></div></div>
+  <div class="pub"><span class="num">19</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Challenges%20and%20opportunities%20in%20non-destructive%20characterization%20of%20stacked%20IC%20packaging%3A%20Insights%20from%20SAM%20and%203D%20X-ray%20analysis" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Challenges and opportunities in non-destructive characterization of stacked IC packaging: Insights from SAM and 3D X-ray analysis</a></div><div class="auth">Varshney, N., Ghosh, S., <span class="me">Craig, P.</span>, Kottur, H. R., Dalir, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2024</div><div class="vsub">Vol. 13152</div></div></div>
+  <div class="pub"><span class="num">20</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=Exploring%20physics-informed%20machine%20learning%20for%20system%20matrix%20formulation%20in%20X-ray%20imaging%20forward%20models" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Exploring physics-informed machine learning for system matrix formulation in X-ray imaging forward models</a></div><div class="auth">Ghosh, S., Varshney, N., Al Hasan, M. M., Roy, A., <span class="me">Craig, P.</span>, Koppal, S. J., Dalir, H., Asadizanjani, N.</div></div><div class="venue"><div class="vlabel">SPIE 2024</div><div class="vsub">Vol. 13152</div></div></div>
+  <div class="pub" style="border-bottom: 1px solid var(--color-divider);"><span class="num">21</span><div><div class="title"><a href="https://scholar.google.com/scholar?q=U.S.%20microelectronics%20packaging%20ecosystem%3A%20Challenges%20and%20opportunities%20(non-refereed%20preprint)" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">U.S. microelectronics packaging ecosystem: Challenges and opportunities <span style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent);">(non-refereed preprint)</span></a></div><div class="auth">Noor, R., Kottur, H. R., <span class="me">Craig, P. J.</span>, Biswas, L. K., Khan, M. S. M., Varshney, N., Dalir, H., Akçalı, E., Ghane-Motlagh, B., Woychik, C., et al.</div></div><div class="venue"><div class="vlabel">arXiv 2023</div><div class="vsub">2310.11651</div></div></div>
+
+  <section style="padding: clamp(32px, 5vw, 48px) 0 clamp(48px, 6vw, 72px);">
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+      <a href="Patents.dc.html" class="btn btn-primary blueprint" style="padding: 11px 22px; text-decoration: none;"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>View patents</a>
+      <a href="https://scholar.google.com/citations?user=wmn2z3QAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 11px 22px; text-decoration: none;">Google Scholar ↗</a>
+    </div>
+  </section>
+
+  <footer class="foot-grid" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; border-top: 1px solid var(--color-divider); padding: 40px 0 56px;">
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 18px; margin-bottom: 8px;">Patrick Craig</div>
+      <p style="font-size: 13.5px; line-height: 1.55; margin: 0; max-width: 34ch; color: color-mix(in srgb, var(--color-text) 65%, transparent);">PhD Candidate, University of Florida SCAN Lab. Multimodal AI for semiconductor failure analysis.</p>
+    </div>
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-bottom: 12px;">Site</div>
+      <div style="display: grid; gap: 8px; font-size: 14px;">
+        <a href="Research.dc.html" class="navlink">Research</a>
+        <a href="Publications.dc.html" class="navlink">Publications</a>
+        <a href="Patents.dc.html" class="navlink">Patents</a>
+        <a href="About.dc.html" class="navlink">About &amp; CV</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family: var(--font-heading); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-bottom: 12px;">Elsewhere</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a class="social" href="https://www.linkedin.com/in/patrick-j-craig/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4zM8 8h3.8v2.2h.1c.5-1 1.8-2.2 3.8-2.2 4 0 4.8 2.6 4.8 6.1V24h-4v-7c0-1.7 0-3.8-2.3-3.8-2.3 0-2.7 1.8-2.7 3.7V24H8z"/></svg></a>
+        <a class="social" href="https://github.com/patrickjcraig" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+        <a class="social" href="https://scholar.google.com/citations?user=wmn2z3QAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></a>
+        <a class="social" href="mailto:pcraig1@ufl.edu" aria-label="Email"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><path d="m2 6 10 7 10-7"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

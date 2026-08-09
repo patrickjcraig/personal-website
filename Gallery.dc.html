@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/styles.css">
+<script src="_ds/industry-4c91c2a6-1252-4dd6-8fa5-babf3fc62d94/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<style>
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+</style>
+</helmet>
+
+<div style="font-family: var(--font-body); color: var(--color-text);">
+  <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--color-divider); padding-bottom: 12px; margin-bottom: 20px;">
+    <span style="font-family: var(--font-heading); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; font-size: 13px; color: var(--color-accent-700);">{{ title }}</span>
+    <span style="margin-left: auto; font-family: var(--font-heading); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; color: color-mix(in srgb, var(--color-text) 55%, transparent); font-feature-settings: 'tnum' 1;">{{ counter }}</span>
+  </div>
+
+  <div class="blueprint" style="position: relative; border: 1px solid var(--color-divider); overflow: hidden;">
+    <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+    <div style="display: flex; transition: transform .55s cubic-bezier(.22,.61,.36,1); transform: {{ track }};">
+      <sc-for list="{{ slides }}" as="g" hint-placeholder-count="5">
+        <div style="flex: 0 0 100%; aspect-ratio: 16 / 9; background: repeating-linear-gradient(45deg, var(--color-surface) 0 14px, #dedee0 14px 28px);">
+          <image-slot id="{{ g.id }}" shape="rect" src="{{ g.src }}" placeholder="{{ g.ph }}" style="width: 100%; height: 100%; display: block;"></image-slot>
+        </div>
+      </sc-for>
+    </div>
+
+    <button type="button" onClick="{{ prev }}" aria-label="Previous image" style="position: absolute; top: 50%; left: 14px; transform: translateY(-50%); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--color-accent-900) 52%, transparent); color: var(--color-bg); border: 0; cursor: pointer; font-family: var(--font-heading); font-size: 26px; z-index: 2; transition: background .16s ease;" style-hover="background: var(--color-accent-900);">‹</button>
+    <button type="button" onClick="{{ next }}" aria-label="Next image" style="position: absolute; top: 50%; right: 14px; transform: translateY(-50%); width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--color-accent-900) 52%, transparent); color: var(--color-bg); border: 0; cursor: pointer; font-family: var(--font-heading); font-size: 26px; z-index: 2; transition: background .16s ease;" style-hover="background: var(--color-accent-900);">›</button>
+
+    <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 22px 16px; background: linear-gradient(transparent, color-mix(in srgb, var(--color-accent-900) 82%, transparent)); color: var(--color-bg); display: flex; gap: 12px; align-items: baseline; z-index: 1; pointer-events: none;">
+      <span style="font-family: var(--font-heading); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; color: var(--color-accent-300); white-space: nowrap;">{{ tag }}</span>
+      <span style="font-size: 14.5px; line-height: 1.4;">{{ caption }}</span>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 8px; margin-top: 16px;">
+    <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+      <button type="button" onClick="{{ d.onClick }}" aria-label="Go to image" style="{{ d.style }}"></button>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:920,&quot;height&quot;:580},&quot;gid&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;gallery&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;imaging&quot;,&quot;options&quot;:[&quot;imaging&quot;,&quot;pcb&quot;,&quot;lab&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { i: 0 };
+
+  renderVals() {
+    const gid = this.props.gid || "gal";
+    const variant = this.props.variant || "imaging";
+    const sets = {
+      imaging: { title: "Inside the work", data: [
+        { tag: "X-RAY CT", cap: "CT reconstruction of an HBM3 interconnect stack", src: "assets/hbm3-ct.png" },
+        { tag: "LAMINOGRAPHY", cap: "High-aspect-ratio through-glass via array" },
+        { tag: "SAM", cap: "Scanning acoustic map of a bonded interface", src: "assets/sam-bonded.png" },
+        { tag: "THz-TDS", cap: "Terahertz fingerprint of an IC surface" },
+        { tag: "FUSION", cap: "Multimodal fusion overlay for defect localization" },
+      ]},
+      pcb: { title: "PCB assurance", data: [
+        { tag: "X-RAY", cap: "PCB component detection under X-ray" },
+        { tag: "OPTICAL", cap: "Optical interconnect inspection pipeline" },
+        { tag: "NETLIST", cap: "Multimodal netlist extraction overlay" },
+        { tag: "SEGMENTATION", cap: "Semi-supervised component segmentation" },
+      ]},
+      lab: { title: "In the lab", data: [
+        { tag: "SIGRAY APEX", cap: "Hybrid X-ray CT / laminography system" },
+        { tag: "SONOSCAN", cap: "Nordson scanning acoustic microscope" },
+        { tag: "TERACUBE", cap: "Protemics near-field THz-TDS bench" },
+        { tag: "OPTICAL", cap: "Optical microscopy characterization station" },
+      ]},
+    };
+    const set = sets[variant] || sets.imaging;
+    const data = set.data;
+    const n = data.length;
+    const i = Math.min(this.state.i, n - 1);
+    const pad = (x) => ("0" + x).slice(-2);
+    const slides = data.map((d, k) => ({ id: gid + "-" + k, ph: d.tag + " — " + d.cap, src: d.src || "" }));
+    const dots = data.map((d, k) => ({
+      onClick: () => this.setState({ i: k }),
+      style: "width:40px;height:4px;padding:0;border:0;cursor:pointer;transition:background .2s ease;background:" + (k === i ? "var(--color-accent-700)" : "color-mix(in srgb, var(--color-text) 18%, transparent)") + ";",
+    }));
+    return {
+      title: set.title,
+      slides,
+      dots,
+      track: "translateX(-" + i * 100 + "%)",
+      counter: pad(i + 1) + " / " + pad(n),
+      tag: data[i].tag,
+      caption: data[i].cap,
+      prev: () => this.setState((s) => ({ i: (Math.min(s.i, n - 1) - 1 + n) % n })),
+      next: () => this.setState((s) => ({ i: (Math.min(s.i, n - 1) + 1) % n })),
+    };
+  }
+}
+</script>
+</body>
+</html>
