@@ -14,6 +14,8 @@ The site is a set of static, self-contained HTML pages (no build step):
 | `Patents.dc.html` | Patents list. |
 | `About.dc.html` | About / CV / funding & programs. |
 | `Gallery.dc.html` | Image gallery. |
+| `Blog.dc.html` | Blog index, rendered from `content.js`. |
+| `Videos.dc.html` | Video index, rendered from `content.js`. |
 | `Accessibility.dc.html`, `Privacy.dc.html` | Policy pages. |
 | `index.html` | Plain redirect to `index.dc.html` (so the site root resolves correctly). |
 | `Patrick Craig - Site.dc.html` | Early design-direction mockups; not linked from site navigation. |
@@ -25,6 +27,10 @@ Supporting files:
 - `_ds/` — the "Industry" design-system bundle (shared CSS/JS/tokens) the pages are built on.
 - `image-slot.js`, `continuous-scroll.js`, `support.js` — page-level scripting (image upload/reframe slots, scroll effects, nav/shared behavior).
 - `.nojekyll` — disables GitHub Pages' Jekyll processing so folders like `_ds/` aren't excluded from the deploy.
+
+## Publishing blog posts and videos
+
+Add or edit entries in `content.js`. For a new blog post, copy an existing `blog/<slug>/index.html` file (or `blog/_template/index.html`) into a folder matching the post slug, then update its `data-slug`. For a video, set `youtubeId` to the 11-character YouTube video ID; an empty value intentionally shows a polished placeholder instead of an unrelated embed.
 
 ## Local preview
 

@@ -1,5 +1,5 @@
 (function () {
-  var ORDER = ['index.dc.html', 'Research.dc.html', 'Publications.dc.html', 'Patents.dc.html', 'About.dc.html'];
+  var ORDER = ['index.dc.html', 'Research.dc.html', 'Publications.dc.html', 'Patents.dc.html', 'Blog.dc.html', 'Videos.dc.html', 'About.dc.html'];
   var THRESHOLD = 260;
 
   function currentFile() {
